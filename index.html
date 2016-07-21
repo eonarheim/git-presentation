@@ -1,18 +1,121 @@
 <html>
     <head>
         <link rel="stylesheet" href="lib/reveal/css/reveal.css">
-        <link rel="stylesheet" href="lib/reveal/css/theme/white.css">
+        <link rel="stylesheet" href="lib/reveal/css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/reveal/lib/css/zenburn.css">
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>Slide 1</section>
-                <section>Slide 2</section>
+                <section>
+                    <h1>Git-ing started with Git</h1>
+                    <img class="image small no-border" src="img/git-icon.png">
+                    <p>
+                        <small><a href="https://erikonarheim.com">Erik Onarheim</a> / <a href="http://twitter.com/erikonarheim">@erikonarheim</a></small>
+                    </p>
+
+                </section>
+                <section>
+                    <h2>About me</h2>
+                    <hr/>
+                    <img class="left image" style="width: 20%;" src="img/avatar.gif">
+                    <div class="left" style="width: 70%">
+                        <p class="fragment">Web Hoster</p>
+                        <p class="fragment">Software Developer</p>                        
+                        <p class="fragment">Video Game Enthusiast</p>
+                        <p class="fragment">excaliburjs.com</p>
+                        <div class="fragment">
+                            <img class="no-border small" src="img/excalibur-title.png">
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>What is git?</h2>
+                    <ul>
+
+                        <li class="fragment">Version Control System</li>
+                        <li class="fragment">Free and open source</li>
+                        <li class="fragment">Distributed in nature</li>
+                        <li class="fragment">Similar in concept to Hg (Mercurial)</li>
+					</ul>                
+                </section>
+                <section>
+                    <h2>Where do I "git" it?</h2>
+
+                    <p>There are multiple git clients out there for your platform. Use what makes you happy</p>
+                    <ul>
+                        <li class="fragment">Command Line</li>
+                        <li class="fragment">Github for Windows</li>
+                        <li class="fragment">Visual Studio</li>
+					</ul>                
+                </section>
+                <section>
+                    <h2>Different from TFS?</h2>
+                    <ul>
+                        <li class="fragment">Distributed vs. Centralized</li>
+                        <li class="fragment">File system is the source of truth</li>
+                        <li class="fragment">Branches are cheap</li>
+                        <li class="fragment">Easy context switching</li>
+					</ul>                
+                </section>
+                <section>
+                    <h2>A brief history of Git</h2>
+                    <p>Developed originally by Linus Torvalds of Linux fame, when the proprietary DCVS tool 'BitKeeper' that the Linux community was using, became no longer free of charge.</p>
+                    <p>Used to maintain the Linux kernel itself, it needed to be robust enough to handle large projects</p>
+                </section>
+
+                <section>
+                    <h2>Starting off with git</h2>
+                    <p>Some terminology first...</p>
+                    <ul>
+                        <li class="fragment"><strong>Commit</strong> - All changes to files are stored as commits. Git is all about manipulating series of commits</li>
+                        <li class="fragment"><strong>Branches</strong> - Are just a series of commits, they tell a story about code over time and are given a name. Often used for organizing work or features</li>
+                        <li class="fragment"><strong>Repositories</strong> - Also known as "repos" Are full copies of the code base, commits, branches, etc. </li>
+                        <li class="fragment"><strong>Cloning</strong> - Creates a local copy on your machine of a remote repository, including all history</li>
+					</ul>
+                </section>
+                <section>
+                    <h2>How does Git work?</h2>
+                    <ul>
+                        <li>Commits are snapshots of the filesystem at a point in time</li>
+                        <li>Everything is SHA1 check-summed before it is stored, so any change is detected by git</li>
+                        <li>Git adds data for nearly every command</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>3 Areas</h2>
+                    <img src="img/areas.png" class="image bigger">
+                </section>
+                <section>
+                    <h2>Git for the first time</h2>
+                    <p>Identity</p>
+                    <pre><code class="bash">$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com</code></pre>
+                    <p>List settings</p>
+                    <pre><code class="bash">$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...</code></pre>
+                </section>
             </div>
         </div>
         <script src="lib/reveal/js/reveal.js"></script>
         <script>
-            Reveal.initialize();
+            Reveal.initialize({
+                progress: true,
+                history: true,
+                transistion: 'slide'
+            });
         </script>
+        
+        <script src="lib/reveal/plugin/highlight/highlight.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>

@@ -6,11 +6,16 @@ In this session we will get to the bottom of Git, and learn how to use Git and t
 
 We will cover:
 
+How is git different than tfs?
+Git workflow - master is the stable branch
+Pull requests and why they rock
+
 Git basics
 * commits
 * push/pull/clone
 * merging
 * branches
+* ignoring files
 Git workflow
 Advanced Git topics
 * Rebasing
@@ -22,3 +27,13 @@ Merge Tools
 Github and other cloud providers
 Open Source Etiquette
 And More!
+
+
+TODO:
+
+History of git
+Add graphics of what a commit is
+Commit vs Changeset
+Git best practices
+ * Master is the stable branch "blessed" branch
+ * Short lived branches are better
