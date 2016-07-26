@@ -70,7 +70,7 @@
                     </section>
                 </section>
                 <section>
-                    <h2>Different from TFS?</h2>
+                    <h2>Different from TFS/CVS/SVN/Perforce?</h2>
                     <ul>
                         <li class="fragment">Distributed vs. Centralized</li>
                         <li class="fragment">File system is the source of truth</li>
@@ -209,6 +209,10 @@ nothing to commit, working directory clean</code></pre>
                     Creating branches
                     Switching branches
                     Why are branches cheap
+                    <pre><code>git checkout -b new-branch</code></pre>
+                    <pre><code>git branch new-branch
+git checkout new-branch</code></pre>
+
                     https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
                 </section>
                 <section>
@@ -230,10 +234,13 @@ nothing to commit, working directory clean</code></pre>
                     </section> 
                     <section>
                         <h2>Fast forward merge</h2>                    
-                        
+                        <img class="big" src="img/basic-branching-4.png">
+                        <img class="big" src="img/basic-branching-5.png">
                     </section>
                     <section>
                         <h2>3-way merge (results in a merge commit)</h2>
+                        <img class="big" src="img/basic-branching-6.png">
+                        <img class="big" src="img/basic-merging-2.png">
                     </section>
                 </section>
                 <section data-background="img/fire.gif">
@@ -269,6 +276,9 @@ git rebase master</code></pre>
                 </section>    
                 <section>
                     <h2>Undoing mistakes</h2>
+                    <p>Fix the last commit</p>
+                    <pre><code class="bash">git commit --amend</code></pre>
+                    <p class="fragment"><strong>*DONT AMEND YOUR COMMIT IF ALREADY PUSHED</strong></p>
                 </section>
                 <section>
                     <h2>Revert vs. Reset</h2>
