@@ -32,25 +32,42 @@
                         </div>
                     </div>
                 </section>
+                <section data-background="img/git_xkcd.png" data-background-size="25%">
+                </section>
+
+                <section data-background="img/caveman.png" data-background-size="55%">
+                </section>
+
                 <section>
                     <h2>What is git?</h2>
                     <ul>
-
                         <li class="fragment">Version Control System</li>
-                        <li class="fragment">Free and open source</li>
-                        <li class="fragment">Distributed in nature</li>
-                        <li class="fragment">Similar in concept to Hg (Mercurial)</li>
+                        <li class="fragment">Distributed</li>
+                        <li class="fragment">Free and open source <span class="fragment">(as in beer)</span></li>
+                        <li class="fragment">Low disk/memory footprint</li>
+                        <li class="fragment">Good on spotty networks</li>                        
+                        <li class="fragment">Familar concepts to other vcs</li>
+                        <li class="fragment">Fast</li>
 					</ul>                
                 </section>
+                
                 <section>
-                    <h2>Where do I "git" it?</h2>
+                    <section>
+                        <h2>Where do I "git" it?</h2>
 
-                    <p>There are multiple git clients out there for your platform. Use what makes you happy</p>
-                    <ul>
-                        <li class="fragment">Command Line</li>
-                        <li class="fragment">Github for Windows</li>
-                        <li class="fragment">Visual Studio</li>
-					</ul>                
+                        <p>There are multiple git clients out there for your platform. Use what makes you happy</p>
+                        <ul>
+                            <li class="fragment">Command Line - https://git-scm.com/download/</li>
+                            <li class="fragment">Github for Windows - https://desktop.github.com/</li>
+                            <li class="fragment">Visual Studio</li>
+                        </ul>
+                    </section>            
+                    <section>
+                        <h2>Chocolately ROCKS</h2>
+                        <p>https://chocolatey.org/</p>
+                        <pre><code class="powershell">choco install git</code></pre>
+                        <pre><code class="powershell">choco install poshgit</code></pre>
+                    </section>
                 </section>
                 <section>
                     <h2>Different from TFS?</h2>
@@ -59,36 +76,57 @@
                         <li class="fragment">File system is the source of truth</li>
                         <li class="fragment">Branches are cheap</li>
                         <li class="fragment">Easy context switching</li>
+                        <li class="fragment">Fast</li>
 					</ul>                
                 </section>
                 <section>
                     <h2>A brief history of Git</h2>
                     <p>Developed originally by Linus Torvalds of Linux fame, when the proprietary DCVS tool 'BitKeeper' that the Linux community was using, became no longer free of charge.</p>
                     <p>Used to maintain the Linux kernel itself, it needed to be robust enough to handle large projects</p>
+                    <a href="https://www.youtube.com/watch?v=4XpnKHJAok8">Linus Torvalds on Git</a>
                 </section>
-
+                <!--
+                <section data-background="img/linus-mental.jpg" data-background="30%">
+                    
+                </section>
+                -->
+                <!--
                 <section>
                     <h2>Starting off with git</h2>
                     <p>Some terminology first...</p>
                     <ul>
-                        <li class="fragment"><strong>Commit</strong> - All changes to files are stored as commits. Git is all about manipulating series of commits</li>
+                        <li class="fragment"><strong>Commit</strong> - All changes to files are stored as commits.</li>
                         <li class="fragment"><strong>Branches</strong> - Are just a series of commits, they tell a story about code over time and are given a name. Often used for organizing work or features</li>
                         <li class="fragment"><strong>Repositories</strong> - Also known as "repos" Are full copies of the code base, commits, branches, etc. </li>
                         <li class="fragment"><strong>Cloning</strong> - Creates a local copy on your machine of a remote repository, including all history</li>
 					</ul>
-                </section>
+                </section>-->
                 <section>
-                    <h2>How does Git work?</h2>
-                    <ul>
-                        <li>Commits are snapshots of the filesystem at a point in time</li>
-                        <li>Everything is SHA1 check-summed before it is stored, so any change is detected by git</li>
-                        <li>Git adds data for nearly every command</li>
-                    </ul>
+                    <section>
+                        <h2>Starting off with git</h2>
+                        <p>First, a commit is 3 things</p>
+                        <ul>
+                            <li class="fragment">A set of <strong>files</strong> that is a snapshot of the filesystem of the project at some point in time</li>
+                            <li class="fragment">Everything in a commit is SHA1 hashed before it is stored, <strong>so any change</strong> is detected by git</li>
+                            <li class="fragment">A reference to the <strong>parent</strong> commit</li>
+                        </ul>
+                        <p class="fragment">A project is a chain of commits pointing back in time, and always starts with a "root" commit with no parents</p>
+                        <h2 class="fragment">Git is all about manipulating this series of commits!</h2>
+                    </section>
+                    <section>
+                        TODO Image example
+                    </section>
+                    <section>
+                        <h2>A repository has heads</h2>
+                        <p class="fragment">heads or refs (references) are just named commits some of which are called <strong>"branches"</strong></p>
+                        <p class="fragment"><strong>HEAD</strong> is a special pointer that points to the head of the current branch</p>
+                    </section>
+                    <section>
+                        <h2>Cloning and Forking</h2>
+                        <p class="fragment">Creates a copy, including all history and branches from the origin repository</p>
+                    </section>
                 </section>
-                <section>
-                    <h2>3 Areas</h2>
-                    <img src="img/areas.png" class="image bigger">
-                </section>
+                
                 <section>
                     <h2>Git for the first time</h2>
                     <p>Identity</p>
@@ -109,7 +147,9 @@ color.diff=auto
                     <pre><code class="bash">$ git clone https://github.com/excaliburjs/Excalibur.git</code></pre>
                     <pre><code class="bash">$ git clone git@github.com:excaliburjs/Excalibur.git</code></pre>
                     <h2>Or initialize a new repo</h2>
-                    <pre><code class="bash">$ git init</code></pre>
+                    <pre><code class="bash">$ git init
+git remote add origin https://github.com/eonarheim/mygitrepo.git
+git push -u origin master</code></pre>
                 </section>
                 <section>
                     <h2>Check status</h2>
@@ -119,22 +159,50 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean</code></pre>
                 </section>
                 <section>
+                    <h2>3 Areas</h2>
+                    <img src="img/areas.png" class="image bigger">
+                </section>
+                <section>
                     <h2>Staging and Commiting changes</h2>
+                    Staged for storage in the next commit
+                    Snapshot of the file system
+                </section>
+                <section data-background="img/git_commit.png" data-background-size="60%">
+                </section>
+                <section>
+                    <section data-background="img/lsp.gif">
+                        <h2>A Brief Word on commit messages...</h2>
+                        
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Use present tense verbs ("Fix bug where..." instead of "Fixed bug where...")</li>
+                            <li class="fragment">Use imperative mood ("Add new feature" instead of "Adds new feature")</li>
+                            <li class="fragment">Capitalize the first letter of the first line</li>
+                            <li class="fragment">Limit the first line to 50 characters or less</li>
+                            <li class="fragment">Separate the message subject from the rest of the commit with a blank line</li>
+                            <li class="fragment">Limit lines in the message body to 72 characters or less</li>
+                            <li class="fragment">Reference issue and pull request numbers as appropriate</li>
+                            <li class="fragment">If your change is small and simple, you may only need to write a single line commit message, e.x. "Fix typo in documentation"</li>
+                        </ul>
+                        <a class="fragment" href="https://github.com/excaliburjs/Excalibur/blob/master/CONTRIBUTING.md">Excalibur Contributing Guide</a>
+                    </section>
                 </section>
                 <section>
                     <h2>Ignoring files</h2>
+                    <p>The <code>.gitignore</code> file at the root fo the project directory contains patterns to igonre</p>
+                    <img src="img/ignore.png">
+
                 </section>
-                <section>
-                    <h2>Pushing changes</h2>
-                    TODO Remotes $ git remote -v
-                    $ git push origin master
-                </section>
-                <section>
-                    <h2>Pulling and Fetching changes</h2>
-                </section>
+                
                 <section>
                     <h2>View history</h2>
+                    TODO: git log example
                 </section>
+                <!--<section>
+                    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I don&#39;t know whether &quot;tech cartoonist&quot; is a sustainable career, but I&#39;m having a lot of fun. <a href="https://t.co/YSfnCmTdqc">pic.twitter.com/YSfnCmTdqc</a></p>&mdash; Jennifer Gilbert (@jay_gee) <a href="https://twitter.com/jay_gee/status/702638177471873024">February 24, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </section>-->
                 <section>
                     <h2>Branching</h2>                    
                     What is "head"
@@ -144,19 +212,61 @@ nothing to commit, working directory clean</code></pre>
                     https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
                 </section>
                 <section>
-                    <h2>Merging</h2>  
-                    Fast forward merge
-                    3-way merge (results in a merge commit)
-                    https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+                    <h2>Pushing changes</h2>
+                    Interacting with the network
+                    
+                    TODO Remotes $ git remote -v
+                    $ git push origin master
                 </section>
                 <section>
-                    <h2>Rebasing</h2>  
-                    https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+                    <h2>Pulling and Fetching changes</h2>
+                </section>
+
+
+                <section>
+                    <section data-background="img/merge.gif">
+                        <h2>Merging</h2>
+                        https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+                    </section> 
+                    <section>
+                        <h2>Fast forward merge</h2>                    
+                        
+                    </section>
+                    <section>
+                        <h2>3-way merge (results in a merge commit)</h2>
+                    </section>
+                </section>
+                <section data-background="img/fire.gif">
+                    <h2>Conflict</h2>
+                </section>
+                <section data-background="img/backtothefuture.gif">
+                    <h2>Changing History</h2>
+                </section>
+                <section>
+                    <h2>Rebasing</h2>
+                    <pre><code class="bash">git rebase [this-commit]</code></pre>
+                    <ul>
+                        <li>identifies the common ancestor of [this-commit]</li>
+                        <li>finds the changes from the common ancestor</li>
+                        <li>sets the current head to [this-commit]</li>
+                        <li>replays changes onto current head with new commits</li>
+                    </ul>
+                    <pre><code class="bash">git checkout experiment
+git rebase master</code></pre>
+
+                    <img class="bigger" src="img/basic-rebase-3.png">
                 </section>
                 <section>
                     <h2>Interactive Rebasing</h2>  
                     https://git-scm.com/book/en/v2/Git-Branching-Rebasing
                 </section>
+                <section>
+                    <h2>Some controversy... merge vs. rebase</h2>
+                    <ul>
+                        <li>Record or reality</li>
+                        <li>Story of the project</li>
+                    </ul>
+                </section>    
                 <section>
                     <h2>Undoing mistakes</h2>
                 </section>
@@ -194,20 +304,43 @@ $ git config --global alias.st status</code></pre>
                     git clone --recursive
                     
                 </section>
-                <section>
+                <section data-background="img/redline.gif">
                     <h2>Git best practices</h2>
                 </section>
                 <section>
                     <h2>Public history</h2>
+                    <p class="fragment">Don't mess with history, or people will be sad</p>
+                </section>
+                <section>
+                    <h2>Branches that are shorter lived are better</h2>
+                </section>
+                <section>
+                    <h2>Common Workflow</h2>
+                    <p>The "Github" flow, which you can use for profit</p>
+                    <ul>
+                        <li class="fragment">Create an issue</li>
+                        <li class="fragment">Discussion</li>
+                        <li class="fragment">Fork</li>
+                        <li class="fragment">Pull Request</li>
+                        <li class="fragment">Discussion</li>
+                        <li class="fragment">Merge</li>
+                        <li class="fragment">Profit$</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li>Github Training https://www.youtube.com/watch?v=U8GBXvdmHT4</li>
+                        <li>Try Git https://try.github.io/levels/1/challenges/1</li>
+                        <li>Git Real https://www.codeschool.com/courses/git-real</li>
+                        <li><a href="http://lab.hakim.se/reveal-js/#/">RevealJS</a></li>
+                        <li>Understanding git https://www.sbf5.com/~cduan/technical/git/</li>
+                    </ul>
+                </section>
+                <section data-background="img/totoro.gif">
+                    <h2>Questions?</h2>
                 </section>
 
-                <section>
-                    <h2>Branches that are shorter are better</h2>
-                </section>
-                <section>
-                    <h2>Common Workflows</h2>
-                    The "Github" flow
-                </section>
             </div>
         </div>
         <script src="lib/reveal/js/reveal.js"></script>
