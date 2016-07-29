@@ -45,8 +45,7 @@
                         <li class="fragment">Distributed</li>
                         <li class="fragment">Free and open source <span class="fragment">(as in beer)</span></li>
                         <li class="fragment">Low disk/memory footprint</li>
-                        <li class="fragment">Good on spotty networks</li>                        
-                        <li class="fragment">Familar concepts to other vcs</li>
+                        <li class="fragment">Good on spotty networks</li>      
                         <li class="fragment">Fast</li>
 					</ul>                
                 </section>
@@ -69,7 +68,8 @@
                         <pre><code class="powershell">choco install poshgit</code></pre>
                     </section>
                 </section>
-                <section>
+                <section> 
+                    TODO Combine with other slide with comparison table
                     <h2>Different from TFS/CVS/SVN/Perforce?</h2>
                     <ul>
                         <li class="fragment">Distributed vs. Centralized</li>
@@ -85,22 +85,6 @@
                     <p>Used to maintain the Linux kernel itself, it needed to be robust enough to handle large projects</p>
                     <a href="https://www.youtube.com/watch?v=4XpnKHJAok8">Linus Torvalds on Git</a>
                 </section>
-                <!--
-                <section data-background="img/linus-mental.jpg" data-background="30%">
-                    
-                </section>
-                -->
-                <!--
-                <section>
-                    <h2>Starting off with git</h2>
-                    <p>Some terminology first...</p>
-                    <ul>
-                        <li class="fragment"><strong>Commit</strong> - All changes to files are stored as commits.</li>
-                        <li class="fragment"><strong>Branches</strong> - Are just a series of commits, they tell a story about code over time and are given a name. Often used for organizing work or features</li>
-                        <li class="fragment"><strong>Repositories</strong> - Also known as "repos" Are full copies of the code base, commits, branches, etc. </li>
-                        <li class="fragment"><strong>Cloning</strong> - Creates a local copy on your machine of a remote repository, including all history</li>
-					</ul>
-                </section>-->
                 <section>
                     <section>
                         <h2>Starting off with git</h2>
@@ -117,30 +101,19 @@
                         TODO Image example
                     </section>
                     <section>
+                        <h2>Second, adding things to commits</h2>
+                        TODO adding things to the staging area
+                    </section>
+                    <section>
                         <h2>A repository has heads</h2>
                         <p class="fragment">heads or refs (references) are just named commits some of which are called <strong>"branches"</strong></p>
                         <p class="fragment"><strong>HEAD</strong> is a special pointer that points to the head of the current branch</p>
+                        <p class="fragment"><strong>Index</strong> is a special pointer that points to the staging area</p>
                     </section>
                     <section>
-                        <h2>Cloning and Forking</h2>
+                        <h2>Cloning</h2>
                         <p class="fragment">Creates a copy, including all history and branches from the origin repository</p>
                     </section>
-                </section>
-                
-                <section>
-                    <h2>Git for the first time</h2>
-                    <p>Identity</p>
-                    <pre><code class="bash">$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com</code></pre>
-                    <p>List settings</p>
-                    <pre><code class="bash">$ git config --list
-user.name=John Doe
-user.email=johndoe@example.com
-color.status=auto
-color.branch=auto
-color.interactive=auto
-color.diff=auto
-...</code></pre>
                 </section>
                 <section>
                     <h2>Clone a repo</h2>
@@ -152,18 +125,25 @@ git remote add origin https://github.com/eonarheim/mygitrepo.git
 git push -u origin master</code></pre>
                 </section>
                 <section>
+                    <section>
                     <h2>Check status</h2>
                     <pre><code class="bash">$ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean</code></pre>
+                    </section>
+                    <section>
+                        <h2>TODO STATUS NOT CLEAN</h2>
+                    </section>
                 </section>
+
                 <section>
                     <h2>3 Areas</h2>
                     <img src="img/areas.png" class="image bigger">
                 </section>
                 <section>
                     <h2>Staging and Commiting changes</h2>
+                    TODO: Compare to TFS
                     Staged for storage in the next commit
                     Snapshot of the file system
                 </section>
@@ -171,10 +151,10 @@ nothing to commit, working directory clean</code></pre>
                 </section>
                 <section>
                     <section data-background="img/lsp.gif">
-                        <h2>A Brief Word on commit messages...</h2>
-                        
+                        <h2>A Brief Word on commit messages...</h2>                        
                     </section>
                     <section>
+                        TODO: Commit example image with good and bad
                         <ul>
                             <li>Use present tense verbs ("Fix bug where..." instead of "Fixed bug where...")</li>
                             <li class="fragment">Use imperative mood ("Add new feature" instead of "Adds new feature")</li>
@@ -187,33 +167,48 @@ nothing to commit, working directory clean</code></pre>
                         </ul>
                         <a class="fragment" href="https://github.com/excaliburjs/Excalibur/blob/master/CONTRIBUTING.md">Excalibur Contributing Guide</a>
                     </section>
+                    <section>
+                        <h2>View history</h2>
+                        <pre><code class="git">git log --oneline</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="bash">056b1cf Fix link to samples
+a5239ec Update assets with new designs
+3e1ecd6 Update logo asset
+d56cc8f [Close #511] Fix setting initial opacity to 0 and subsequent opacity updates fail (#613)
+67e1a0e [Close #555, #320] Fix camera lerp and support easing functions (#610)
+74b840f Update assets
+cb2ac4c [Close #609] Fix updating player acceleration (#611)
+7fe5ebc Update CONTRIBUTING.md and add Code of Conduct (#608)
+53bf4e1 Update link to edge docs
+d4ffe30 Fix compiling Polygon
+02b1f1e Upgrade to TS 1.8 (#605)
+3039eb9 Update travis-ci
+94d0e29 Try using different UA
+6bb16dc Close [#585] Implement actor.on('kill') event (#597)</code></pre>
+                    </section>
                 </section>
                 <section>
+                    <section>
                     <h2>Ignoring files</h2>
                     <p>The <code>.gitignore</code> file at the root fo the project directory contains patterns to igonre</p>
                     <img src="img/ignore.png">
+                    
+                    </section>
+                	<section>
+                        <img src="img/gitignore.png">
+                	</section>
 
                 </section>
                 
+                
                 <section>
-                    <h2>View history</h2>
-                    TODO: git log example
-                </section>
-                <!--<section>
-                    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I don&#39;t know whether &quot;tech cartoonist&quot; is a sustainable career, but I&#39;m having a lot of fun. <a href="https://t.co/YSfnCmTdqc">pic.twitter.com/YSfnCmTdqc</a></p>&mdash; Jennifer Gilbert (@jay_gee) <a href="https://twitter.com/jay_gee/status/702638177471873024">February 24, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </section>-->
-                <section>
-                    <h2>Branching</h2>                    
-                    What is "head"
-                    Creating branches
-                    Switching branches
-                    Why are branches cheap
+                    <h2>Branching</h2>
                     <pre><code>git checkout -b new-branch</code></pre>
+                    or
                     <pre><code>git branch new-branch
 git checkout new-branch</code></pre>
 
-                    https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
                 </section>
                 <section>
                     <h2>Pushing changes</h2>
@@ -223,28 +218,40 @@ git checkout new-branch</code></pre>
                     $ git push origin master
                 </section>
                 <section>
-                    <h2>Pulling and Fetching changes</h2>
+                    <section>
+                        <h2>Pull vs Fetch</h2>
+                        <img class="fragment" src="img/fetch.jpg">
+                    </section>
+                    <section>
+                        <p><strong>Fetch</strong> grabs changes in remote branch and brings them local (w/o merging)</p>
+                        <p><strong>Pull</strong> = fetch + merge</p>
+                    </section>
                 </section>
 
 
                 <section>
                     <section data-background="img/merge.gif">
                         <h2>Merging</h2>
-                        https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
                     </section> 
                     <section>
                         <h2>Fast forward merge</h2>                    
-                        <img class="big" src="img/basic-branching-4.png">
-                        <img class="big" src="img/basic-branching-5.png">
+                        <img class="tall" style="background:gray;" src="img/ff.svg">
                     </section>
                     <section>
                         <h2>3-way merge (results in a merge commit)</h2>
-                        <img class="big" src="img/basic-branching-6.png">
-                        <img class="big" src="img/basic-merging-2.png">
+                        <img class="tall" style="background:gray;" src="img/3-way.svg">
                     </section>
                 </section>
-                <section data-background="img/fire.gif">
-                    <h2>Conflict</h2>
+                <section>
+                    <section data-background="img/fire.gif">
+                        <h2>Conflict</h2>
+                    </section>
+                    <section>
+                        TODO WHAT does it looke like, what does it mean
+                    </section>
+                    <section>
+                        MERGE TOOLS
+                    </section>
                 </section>
                 <section data-background="img/backtothefuture.gif">
                     <h2>Changing History</h2>
@@ -252,6 +259,7 @@ git checkout new-branch</code></pre>
                 <section>
                     <h2>Rebasing</h2>
                     <pre><code class="bash">git rebase [this-commit]</code></pre>
+                    <p>"Changing the base of the current HEAD commit"</p>
                     <ul>
                         <li>identifies the common ancestor of [this-commit]</li>
                         <li>finds the changes from the common ancestor</li>
@@ -265,6 +273,7 @@ git rebase master</code></pre>
                 </section>
                 <section>
                     <h2>Interactive Rebasing</h2>  
+                    Combining many commits into one
                     https://git-scm.com/book/en/v2/Git-Branching-Rebasing
                 </section>
                 <section>
@@ -282,29 +291,34 @@ git rebase master</code></pre>
                 </section>
                 <section>
                     <h2>Revert vs. Reset</h2>
+                    <p><strong>Revert</strong> is a new commit that is like the "anti" commit for an older commit</p>
+                    <!--<img style="background:gray;" src="img/revert.svg">-->
+                    <p><strong>Reset</strong> unwinds the commit from history, and can be dangerous</p>
+                    <p class="fragment">*Mostly used to undo stuff in the staging area or to back-out un pushed commits</p>
+                    
                 </section>
                 <section>
-                    <h2>Cherry Pick</h2>                
+                    <img class="tall" style="background:white;" src="img/reset.svg">
                 </section>
-                
                 <section>
                     <h2>Tags</h2>
                     https://git-scm.com/book/en/v2/Git-Basics-Tagging
                 </section>
-                <section>
+                <!--<section>
                     <h2>Git Alias for the Rich and famous</h2>
                     <pre><code class="bash">$ git config --global alias.co checkout
 $ git config --global alias.br branch
 $ git config --global alias.ci commit
 $ git config --global alias.st status</code></pre>
-                </section>
+                </section>-->
                 <section>
                     <h2>Stash</h2>
+                    TODO: Compare to shelvesets in TFS
                     git stash
                     git stash pop
                     git stash list                
                 </section>
-                <section>
+                <!--<section>
                     <h2>Sub modules</h2>
                     https://git-scm.com/book/en/v2/Git-Tools-Submodules
                     git submodule add
@@ -313,7 +327,7 @@ $ git config --global alias.st status</code></pre>
 
                     git clone --recursive
                     
-                </section>
+                </section>-->
                 <section data-background="img/redline.gif">
                     <h2>Git best practices</h2>
                 </section>
